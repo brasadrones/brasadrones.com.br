@@ -1,0 +1,19 @@
+services:
+  astro:
+    image: node:22-alpine
+    working_dir: /app
+
+    ports:
+      - "4321:4321"
+
+    volumes:
+      # your source code
+      - .:/app
+
+      # persistent container-only node_modules
+      - astro_node_modules:/app/node_modules
+
+    command: sh -c "npm install && npm run dev -- --host"
+
+volumes:
+  astro_node_modules:

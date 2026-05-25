@@ -8,6 +8,8 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  showNavbar?: boolean;
+  showFooter?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -17,7 +19,9 @@ const resolvedImageWithDomain = new URL(
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, showNavbar, showFooter } = Astro.props;
+const shouldShowNavbar = showNavbar !== false;
+const shouldShowFooter = showFooter !== false;
 
 const makeTitle = title
   ? title + " | " + "Astroship"
@@ -56,9 +60,9 @@ const makeTitle = title
     />
   </head>
   <body>
-    <Navbar />
+    {shouldShowNavbar ? <Navbar /> : null}
     <slot />
-    <Footer />
+    {shouldShowFooter ? <Footer /> : null}
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */

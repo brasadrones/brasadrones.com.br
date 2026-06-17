@@ -4,8 +4,9 @@ import { getRedirects } from "@/lib/redirects";
 
 export const prerender = false;
 
+const path = ("/" + (Astro.params.redirect ?? "")).replace(/\/+$/, "") || "/";
 const map = await getRedirects();
-const entry = map.get("/livestream");
+const entry = map.get(path);
 
 if (entry) {
   return Astro.redirect(entry.target, 302);

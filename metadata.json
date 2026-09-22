@@ -1,0 +1,6 @@
+{
+  "name": "BRASA - Robótica Aérea",
+  "description": "Tecnologia de drones e robótica aérea aplicada a desafios reais no território brasileiro.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

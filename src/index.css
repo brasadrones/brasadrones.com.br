@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* BRASA Official Typography Local @font-face */
+@font-face {
+  font-family: 'Sansation';
+  src: url('/fonts/brasa/Sansation-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/brasa/Lexend-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/brasa/Lexend-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PROJETO DORA Official Typography Local @font-face */
+@font-face {
+  font-family: 'Tektur';
+  src: url('/fonts/projeto-dora/Tektur-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/projeto-dora/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/projeto-dora/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* BRASA Core Brand Tokens */
+  --color-brasa-navy: #071A4D;
+  --color-brasa-navy-dark: #030C27;
+  --color-brasa-navy-light: #0D266B;
+  --color-brasa-orange: #FB9627;
+  --color-brasa-offwhite: #FFFAF4;
+  --color-brasa-cyan: #02AACA;
+  --color-brasa-sand: #F2ECE1;
+  --color-brasa-slate: #8B99B5;
+  --color-brasa-border: rgba(255, 250, 244, 0.15);
+  
+  /* DORA Brand Tokens */
+  --color-dora-onix: #0F0F0F;
+  --color-dora-safira: #0E0B57;
+  --color-dora-cerejeira: #F4879F;
+  --color-dora-offwhite: #FFFAF4;
+
+  /* Official Typography System Tokens */
+  --font-brasa-display: 'Sansation', system-ui, -apple-system, sans-serif;
+  --font-brasa-body: 'Lexend', system-ui, -apple-system, sans-serif;
+  --font-dora-display: 'Tektur', system-ui, -apple-system, sans-serif;
+  --font-dora-body: 'Ubuntu', system-ui, -apple-system, sans-serif;
+
+  /* Default Font Tokens */
+  --font-sans: var(--font-brasa-body);
+  
+  /* Fluid Spacing & Sizing Tokens */
+  --section-py: clamp(3.5rem, 7vh + 1.5rem, 8.5rem);
+  --section-px: clamp(1.25rem, 4vw, 4rem);
+
+  /* Timing */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-brasa-navy);
+    color: var(--color-brasa-offwhite);
+    font-family: var(--font-brasa-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-brasa-navy);
+    color: var(--color-brasa-offwhite);
+    font-family: var(--font-brasa-body);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-brasa-display);
+    font-weight: 700;
+  }
+
+  /* Custom Selection */
+  ::selection {
+    background-color: var(--color-brasa-orange);
+    color: var(--color-brasa-navy-dark);
+  }
+}
+
+/* BRASA Typography Utility Classes */
+.font-brasa-display {
+  font-family: var(--font-brasa-display);
+  font-weight: 700;
+}
+
+.font-brasa-body {
+  font-family: var(--font-brasa-body);
+  font-weight: 400;
+}
+
+.font-brasa-body-bold {
+  font-family: var(--font-brasa-body);
+  font-weight: 600;
+}
+
+/* PROJETO DORA Typography Utility Classes */
+.font-dora-display {
+  font-family: var(--font-dora-display);
+  font-weight: 600;
+}
+
+.font-dora-body {
+  font-family: var(--font-dora-body);
+  font-weight: 400;
+}
+
+/* Film Grain Overlay - Subtle Materiality */
+.film-grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brasa-navy-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 150, 39, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brasa-orange);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .film-grain-overlay {
+    animation: none;
+  }
+}
+
+/* Hero Headline Laptop Short Height Exception (height <= 768px on desktop) */
+@media (min-width: 1024px) and (max-height: 768px) {
+  .hero-line1 {
+    font-size: 4.5rem !important;
+  }
+  .hero-line2 {
+    font-size: 6.5rem !important;
+  }
+  .hero-line3 {
+    font-size: 2.85rem !important;
+  }
+}

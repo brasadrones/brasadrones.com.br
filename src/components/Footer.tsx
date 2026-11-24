@@ -11,9 +11,15 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-[90rem] mx-auto space-y-8 sm:space-y-10">
         {/* Top Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 justify-between items-start">
-          {/* Brand Identity */}
-          <div className="sm:col-span-2 md:col-span-5 flex items-center md:items-start">
+          {/* Brand Identity & Commercial Contact */}
+          <div className="sm:col-span-2 md:col-span-5 flex flex-col items-start space-y-3">
             <BrasaLogo variant="light" className="h-[58px] sm:h-[76px] md:h-[86px] w-auto" />
+            <a
+              href={`mailto:${siteContent.footer.contactEmail}`}
+              className="pt-1 text-xs text-[#FFFAF4]/80 font-brasa-body hover:text-[#FB9627] transition-colors focus:outline-none focus-visible:text-[#FB9627]"
+            >
+              {siteContent.footer.contactEmail}
+            </a>
           </div>
 
           {/* Clean Navigation */}

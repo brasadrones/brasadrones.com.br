@@ -109,6 +109,7 @@ export const siteContent = {
   },
 
   footer: {
+    contactEmail: 'contato@brasadrones.com.br',
     navHeader: 'NAVEGAÇÃO',
     socialHeader: 'REDES SOCIAIS',
     socialLinks: [

@@ -89,7 +89,7 @@ export const siteContent = {
         name: 'Felipe Beserra',
         role: 'Tecnologia',
         isFounder: true,
-        imageUrl: '/media/team/team-beserra.jpeg',
+        imageUrl: '/media/team/team-beserra.jpg',
       },
       {
         id: 'ricardo',
